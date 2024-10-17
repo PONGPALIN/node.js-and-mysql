@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/css/styles.css" rel="stylesheet" />
+    <link href="/css/main.css" rel="stylesheet" />
+    <title>EPT</title>
+</head>
+
+<body>
+    <%- include('header') %>
+        <section class="py-5">
+            <div class="container px-4 px-lg-5">
+                <div class="row-cols-1 input-group-text">
+                    <h1>
+                        <%= item.real_estate_name %>
+                    </h1>
+                </div>
+            </div>
+            <div class="container px-4 px-lg-5 mt-5">
+                <div class="row gx-4 gx-4 row-cols-2  justify-content-center">
+                    <div class="col mb-5">
+                        <div class="card2 h-100">
+                            <div class="slidershow-container">
+                                <div class="mySlides fade">
+                                    <img src="/property/<%= item.image_01 %>" alt="">
+                                </div>
+                                <div class="mySlides fade">
+                                    <img src="/property/<%= item.image_02 %>" alt="">
+                                </div>
+                                <div class="mySlides fade">
+                                    <img src="/property/<%= item.image_03 %>" alt="">
+                                </div>
+                                <div class="mySlides fade">
+                                    <img src="/property/<%= item.image_04 %>" alt="">
+                                </div>
+                                <div class="mySlides fade">
+                                    <img src="/property/<%= item.image_05 %>" alt="">
+                                </div>
+                            </div>
+                            <br>
+                            <div style="text-align: center;">
+                                <div class="dot" onclick="currentSlides(1)">
+                                    <span><img src="/property/<%= item.image_01 %>" alt=""></span>
+                                </div>
+                                <div class="dot" onclick="currentSlides(2)">
+                                    <span><img src="/property/<%= item.image_02 %>" alt=""></span>
+                                </div>
+                                <div class="dot" onclick="currentSlides(3)">
+                                    <span><img src="/property/<%= item.image_03 %>" alt=""></span>
+                                </div>
+                                <div class="dot" onclick="currentSlides(4)">
+                                    <span><img src="/property/<%= item.image_04 %>" alt=""></span>
+                                </div>
+                                <div class="dot" onclick="currentSlides(5)">
+                                    <span><img src="/property/<%= item.image_05 %>" alt=""></span>
+                                </div>
+                            </div>
+                            <div>
+                               <p>id : <%= item.id %></p>
+                               <p>real_estat : <%= item.real_estat %></p>
+                               <p>lat : <%= item.lat %></p>
+                               <p>lon : <%= item.lon %></p>
+                               <p>LOCATION : <%= item.LOCATION %></p>
+                               <p>property_type : <%= item.property_type %></p>
+                               <p>TRANSACTION : <%= item.TRANSACTION %></p>
+                               <p>SALE_TERMS : <%= item.SALE_TERMS %></p>
+                               <p>SALE_PRICE : <%= item.SALE_PRICE %></p>
+                               <p>RENT_PRICE : <%= item.RENT_PRICE %></p>
+                               <p>COMMON_CHARGES  : <%= item.COMMON_CHARGES %></p>
+                               <p>DECORATION_STYLE : <%= item.DECORATION_STYLE %></p>
+                               <p>BEDROOMS : <%= item.BEDROOMS %></p>
+                               <p>BATHROOMS : <%= item.BATHROOMS %></p>
+                               <p>DIRECTION_OF_ROOM : <%= item.DIRECTION_OF_ROOM %></p>
+                               <p>UNIT_SIZE : <%= item.UNIT_SIZE %></p>
+                               <p>LAND_AREA : <%= item.LAND_AREA %></p>
+                               <p>INROOM_FACILITIES : <%= item.INROOM_FACILITIES %></p>
+                               <p>PUBLIC_FACILITIES : <%= item.PUBLIC_FACILITIES %></p>
+                            </div
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            </div>
+        </section>
+        <%- include('footer') %>
+
+            <script>
+                let slideIndex = 1;
+                showSlides(slideIndex);
+                function currentSlides(n) {
+                    slideIndex = n;
+                    showSlides(n);
+                }
+                function showSlides(n) {
+                    let i
+                    var mySlides = document.getElementsByClassName("mySlides");
+                    if (n > mySlides.length) {
+                        slideIndex = 1;
+                    }
+                    if (n < 1) {
+                        slideIndex = mySlides.length;
+                    }
+                    for (i = 0; i < mySlides.length; i++) {
+                        mySlides[i].style.display = "none";
+                    }
+                    mySlides[slideIndex - 1].style.display = "block";
+                    mySlides[slideIndex - 1].classList.add("show");
+                }
+
+            </script>
+</body>
+
+</html>

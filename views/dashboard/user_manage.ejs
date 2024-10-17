@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('header')%>
+
+</head>
+
+<body>
+    <div class="d-flex" id="wrapper">
+
+        <%- include('menu')%>
+
+
+            <div id="page-content-wrapper">
+
+                <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom">
+                    <div class="container-fluid">
+                        <button class="btn btn-primary" id="sidebarToggle"> Toggle Menu</button>
+                    </div>
+                </nav>
+
+                <div class="container-fluid">
+                    <div>
+                        <h1 class="mt-4">จัดการข้อมูลผู้ใช้</h1>
+                        <%if(users[0].role =='user') {%>
+                            <p>Email :      <%= users[0].email  %>     </p>
+                            <p>Passowrd :   <%= users[0].password  %> </p>
+                            <p>Name :       <%= users[0].name  %>     </p>
+                            <p>Phone :      <%= users[0].telephone  %> </p>
+                            <p>Role :       <%= users[0].role  %>     </p>
+                        <%}else {%>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#           </th>
+                                        <th scope="col">email       </th>
+                                        <th scope="col">password    </th>
+                                        <th scope="col">name        </th>
+                                        <th scope="col">telephone   </th>
+                                        <th scope="col">role        </th>
+                                        <th scope="col">edit        </th>
+                                    </tr>
+                                </thead>
+                                <% users.forEach(function(user){ %>
+                                    <tr>
+                                        <form action="/dashboard/user/edit"method="POST">
+                                        <td> <%= user.id %> </td>
+                                        <td> <%= user.email %> </td>
+                                        <td> <%= user.password %></td>
+                                        <td> <%= user.name %></td>
+                                        <td> <%= user.telephone %></td>
+                                        <td>
+                                            <% if(user.role == "admin") { %>
+                                                <select name = "newrole">
+                                                    <option value="admin" selected>admin</option>
+                                                    <option value="user">user</option>
+                                                </select>
+                                            <% } else { %>
+                                                <select name = "newrole">
+                                                    <option value="admin" >admin</option>
+                                                    <option value="user" selected>user</option>
+                                                </select>
+                                            <% } %>
+                                        </td>
+                                        <td>
+                                            <input type="hidden" name="id" value="<%= user.id %>">
+                                            <input type="submit" value="Edit" name = "submit"/>
+                                        </td>
+                                        </form>
+                                    </tr>
+                                <% } ) %>
+                                <tr>
+                                    <td colspan="6">End</td>
+                                </tr>
+                            </table>
+                        <%}%>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+    <%- include('footer')%>
+
+</body>
+
+</html>

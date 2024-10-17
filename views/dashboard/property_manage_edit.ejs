@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('header')%>
+
+</head>
+
+<body>
+    <div class="d-flex" id="wrapper">
+
+        <%- include('menu')%>
+
+
+            <div id="page-content-wrapper">
+
+                <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom">
+                    <div class="container-fluid">
+                        <button class="btn btn-primary" id="sidebarToggle"> Toggle Menu</button>
+                    </div>
+                </nav>
+
+                <div class="container-fluid">
+                    <div>
+                        <h1 class="mt-4">แก้ไขข้อมูลอสังหา</h1>
+
+                        <form action="/dashboard/property/edit"  enctype="multipart/form-data" method="post">
+                            <input type="hidden" name="id" value="<%=item.id%>">
+                            <div class="mt-2 p-3">
+                                <label>real estate name : </label>
+                                <input type="text" name="real_estate_name" id="" value="<%=item.real_estate_name %>">
+                            </div>
+                            <div class="mt-2 p-3">
+                                <label>lat : </label>
+                                <input type="text" name="lat" id="" value="<%=item.lat %>">
+                            </div>
+                            <div class="mt-2 p-3">
+                                <label>lon : </label>
+                                <input type="text" name="lon" id="" value="<%=item.lon %>">
+                            </div>
+                            <div class="mt-2 p-3">
+                                <label>LOCATION : </label>
+                                <input type="text" name="LOCATION" id="" value="<%=item.LOCATION %>">
+                            </div>
+                            <div class="mt-2 p-3">
+                                <label>property_type : </label>
+
+                                <select type="text" name="property_type" id="">
+                                    <option value="<%=item.property_type %>">
+                                        <%=item.property_type %>
+                                    </option>
+                                    <option value="house">house</option>
+                                    <option value="condominium">condominium</option>
+                                    <option value="land">land </option>
+                                </select>
+                            </div>
+                            <div class="mt-2 p-3">
+                                <label>TRANSACTION : </label>
+                                <select type="text" name="TRANSACTION" id="">
+                                    <option value="<%=item.TRANSACTION %>">
+                                        <%=item.TRANSACTION %>
+                                    </option>
+                                    <option value="FOR SELL ONLY">FOR SELL ONLY</option>
+                                    <option value="RENT UP TO 6 MONTHS">RENT UP TO 6 MONTHS</option>
+                                    <option value="FOR RENT AND FOR SELL">FOR RENT AND FOR SELL</option>
+                                </select>
+
+                            </div>
+                            <div class="mt-2 p-3">
+                                <label>SALE_TERMS : </label>
+                                <select type="text" name="SALE_TERMS" id="">
+                                    <option value="<%=item.SALE_TERMS %>">
+                                        <%=item.SALE_TERMS %>
+                                    </option>
+                                    <option value="RENT UP TO 6 MONTHS">RENT UP TO 6 MONTHS</option>
+                                    <option value="LEASEHOLD">LEASEHOLD</option>
+                                    <option value="FREEHOLD">FREEHOLD</option>
+                                    <option value="">ไม่ระบุ</option>
+                                </select>
+                            </div>
+                            <div class="mt-2 p-3">
+                                <label>SALE_PRICE : </label>
+                                <input type="text" name="SALE_PRICE" id="" value="<%=item.SALE_PRICE %>">
+                            </div>
+                            <div class="mt-2 p-3">
+                                <label>RENT_PRICE : </label>
+                                <input type="text" name="RENT_PRICE" id="" value="<%=item.RENT_PRICE %>">
+                            </div>
+                            <div class="mt-2 p-3">
+                                <label>COMMON_CHARGES : </label>
+                                <input type="text" name="COMMON_CHARGES" id="" value="<%=item.COMMON_CHARGES %>">
+                            </div>
+                            <div class="mt-2 p-3">
+                                <label>DECORATION_STYLE : </label>
+                                <input type="text" name="DECORATION_STYLE" id="" value="<%=item.DECORATION_STYLE %>">
+                            </div>
+                            <div class="mt-2 p-3">
+                                <label>BEDROOMS : </label>
+                                <input type="text" name="BEDROOMS" id="" value="<%=item.BEDROOMS %>">
+                            </div>
+                            <div class="mt-2 p-3">
+                                <label>BATHROOMS : </label>
+                                <input type="text" name="BATHROOMS" id="" value="<%=item.BATHROOMS %>">
+                            </div>
+                            <div class="mt-2 p-3">
+                                <label>DIRECTION_OF_ROOM : </label>
+                                <select type="text" name="DIRECTION_OF_ROOM" id="">
+
+                                    <option value="<%=item.DIRECTION_OF_ROOM %>">
+                                        <%=item.DIRECTION_OF_ROOM %>
+                                    </option>
+                                    <option value="North">North</option>
+                                    <option value="East">East</option>
+                                    <option value="West">West</option>
+                                    <option value="South">South</option>
+
+                                </select>
+                            </div>
+                            <div class="mt-2 p-3">
+                                <label>UNIT_SIZE : </label>
+                                <input type="text" name="UNIT_SIZE" id="" value="<%=item.UNIT_SIZE %>">
+                            </div>
+                            <div class="mt-2 p-3">
+                                <label>LAND_AREA : </label>
+                                <input type="text" name="LAND_AREA" id="" value="<%=item.LAND_AREA %>">
+                            </div>
+                            <div class="mt-2 p-3">
+                                <label>INROOM_FACILITIES : </label>
+                                <input type="text" name="INROOM_FACILITIES" id="" value="<%=item.INROOM_FACILITIES %>">
+                            </div>
+                            <div class="mt-2 p-3">
+                                <label>PUBLIC_FACILITIES : </label>
+                                <input type="text" name="PUBLIC_FACILITIES" id="" value="<%=item.PUBLIC_FACILITIES %>">
+                            </div>
+                            <div class="mt-2 p-3">
+                                <label>image_01 : </label>
+                                <input type="file" name="image_01" id="" value="<%=item.image_01 %>">
+                            </div>
+                            <div class="mt-2 p-3">
+                                <label>image_02 : </label>
+                                <input type="file" name="image_02" id="" value="<%=item.image_02 %>">
+                            </div>
+                            <div class="mt-2 p-3">
+                                <label>image_03 : </label>
+                                <input type="file" name="image_03" id="" value="<%=item.image_03 %>">
+                            </div>
+                            <div class="mt-2 p-3">
+                                <label>image_04 : </label>
+                                <input type="file" name="image_04" id="" value="<%=item.image_04 %>">
+                            </div>
+                            <div class="mt-2 p-3">
+                                <label>image_05 : </label>
+                                <input type="file" name="image_05" id="" value="<%=item.image_05 %>">
+                            </div>
+                            <div class="m-2 p-2 bg-dark justify-content-center" style="font-size:20pt;"> 
+                                <input type="submit" name="submit" value="EDIT" class="btn btn-success"> submit</input>
+                            </div>
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+    </div>
+
+    <%- include('footer')%>
+
+</body>
+
+</html>
